@@ -1,0 +1,408 @@
+/**********************************************************************
+*
+*	HTML ELEMENTS
+*
+**********************************************************************/
+body
+{
+font-family:sans-serif;
+}
+
+pre {
+	display:inline;
+}
+
+ul {
+	list-style-type:square;
+}
+label{
+font-family:Sans-serif;
+}
+
+
+
+
+/**********************************************************************
+*
+*	STATIC PAGES
+*
+**********************************************************************/
+
+
+div#page
+{
+padding:100px;
+}
+
+
+
+/**********************************************************************
+*
+*	HEADER
+*
+**********************************************************************/
+
+input.search
+{
+	display:inline;
+	width:150px;
+	height:20px;
+	color:#8C8788;
+	font-size:16px;
+}
+form.search
+{
+display:inline;
+float:right;
+
+}
+
+
+
+
+div#logo_small
+{
+display:inline;
+text-align:left;
+}
+
+div#logo
+{
+text-align:center;
+}
+
+div#qoo_citation
+{
+font-style:italic;
+font-family:serif, Times;
+font-size:20px;
+margin-top:100px;
+float:left;
+width:400px;
+
+}
+
+
+
+div#navigation
+{
+margin-top:100px;
+margin-left:700px;
+font-family:sans-serif;
+font-size:40px;
+color:#8C8788;
+}
+
+
+
+
+div#navigation_left
+{
+font-family:sans-serif;
+color:#8C8788;
+float:left;
+font-size:40px;
+}
+
+h1.title
+{
+	font-weight:normal;
+	
+	color:#303030;
+	margin-bottom:50px;
+	font-size:40px;
+	font-family:sans-serif;
+}
+
+input.button 
+{
+	/*font-weight:bold;
+	border:0px;
+	background-color:#eee;*/
+	width:100px;
+	height:30px;
+}
+div#content_right
+{
+	margin-left:300px;
+	
+	width:800px;
+	
+	font-family:sans-serif;
+	font-size:16px;
+}
+
+p.warning
+{
+	
+	background-color:#EDF553;
+	border-width:1px;
+	border-style:solid;
+	border-color:#9B9393;
+	padding:10px;
+	font-family:Sans-serif;
+	font-size:16px;
+	
+}
+
+p.idea
+{
+	
+	background-color:#95F783;
+	border-width:0px;
+	border-radius:15px;
+	padding:10px;
+	font-family:Sans-serif;
+	font-size:16px;
+	
+}
+
+p.featured
+{
+	background-color:#EEE;
+	border-width:0px;
+	border-radius:15px;
+	padding:10px;
+	font-family:Sans-serif;
+	font-size:16px;
+	padding:20px;
+	padding-left:25px;
+}
+
+
+a.navigation
+{
+color:#8C8788;
+color:#303030;
+/*display:block; */
+}
+a.navigation:hover
+{
+	color:#F7711E;
+}
+a.navigation:link
+{
+	text-decoration:none;
+	
+}
+
+a.doc_link
+{
+	font-family:sans-serif;
+	text-decoration:none;
+	color:#FA972D;
+	
+
+}
+a.doc_link:hover
+{
+	color:#8C8788;
+	
+}
+a.doc_link:link
+{
+	text-decoration:none;
+	
+}
+
+#top_bar
+{
+	margin:0px;
+	height:100px;
+	width:100%;
+}
+h1#top_bar_title
+{
+
+display:inline;
+font-family:sans-serif;
+font-weight:normal;
+font-size:30px;
+color:#8C8788;
+}
+
+div#navigation_left
+{
+float:left;
+margin-top:200px;
+font-family:sans-serif;
+font-size:30px;
+color:#8C8788;
+}
+
+
+
+/****************************************************************************************
+*
+*	BREADCRUMB
+*
+*****************************************************************************************/
+
+div.bread_crumb
+{
+font-family:sans-serif;
+}
+a.bread_crumb
+{
+	font-family:sans-serif;
+	text-decoration:none;
+	color:#FA972D;
+	
+}
+
+/*********************************************************************************************
+*
+*	CODE
+*
+**********************************************************************************************/
+code {
+	background-color:#303030;
+	color:white;
+	border:0px;
+	padding:10px;
+	font-family:"Courier New", Courier, monospace;
+	font-size:16px;
+}
+pre {
+	
+}
+p.code 
+{
+	background-color:#303030;
+	color:white;
+	border:0px;
+	padding:10px;
+	font-family:"Courier New", Courier, monospace;
+	font-size:16px;
+
+	
+}
+
+span.keyword
+{
+	font-weight:bold;
+}
+
+span.function
+{
+	color:#40C8E3;
+	font-style:normal;
+}
+
+span.variable
+{
+	color:#F5BF49;
+	font-style:normal;
+}
+span.string
+{
+	color:#3BE349;
+}
+
+
+
+/***************************************************
+*
+*		WIKI
+**************************************************/
+form#create_wiki_page_form
+{
+width:500px;
+}
+form#edit_wiki_page_form
+{
+width:500px;
+}
+
+textarea#wiki_page_content {
+width:498px;
+height:600px;
+
+margin-bottom:20px;
+}
+
+input#wiki_page_title {
+width:500px;
+height:40px;
+color:#8C8788;
+font-size:30px;
+font-family:Sans-serif;
+margin-bottom:20px;
+}
+input#wiki_page_description{
+width:500px;
+height:40px;
+color:#8C8788;
+font-size:20px;
+font-family:Sans-serif;
+margin-bottom:20px;
+}
+div#wiki_sintax_guide
+{
+height:630px;
+width:200px;
+font-size:14px;
+line-height:150%;
+padding:20px;
+padding-top:1px;
+border-style:solid;
+border-color:#grey;
+background-color:#eee;
+border-width:1px;
+float:right;
+}
+h3#wiki_sintax_guide_title
+{
+	font-size:30px;
+	color:#8C8788;
+	font-family:sans-serif;
+	
+}
+
+table#wiki_page_table
+{
+width:700px;
+border:1px solid #eee;
+background-color:#ee;
+}
+thead.wiki_page_table
+{
+	font-size:16;
+	font-weight:bold;
+	color:#8C8788;
+}
+tr.wiki_page_table
+{
+	
+	border-bottom:1px solid #eee;
+}
+td.wiki_title
+{
+}
+td.wiki_description
+{
+}
+
+div.wiki_page
+{
+	border:1px solid #eee;
+	padding:20px;
+}
+h3.wiki_page_title
+{
+	color: #8C8788;
+	font-family:sans-serif;
+	font-size:30px;
+}
+
+div.wiki_page_content
+{
+	font-family:sans-serif;
+}
+p.wiki_page_metadata
+{
+	color: #8C8788;
+	font-size:12px;
+	font-family:sans-serif;
+	text-align:right;
+}
