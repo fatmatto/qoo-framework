@@ -6,7 +6,7 @@
 	*	Change this directory to whatever you placed the green directory after you downloaded it
 	*
 */
-define("QOO_ROOT",'/var/www/qoo-framework/');
+define("QOO_ROOT",'/mnt/orchestra-virtualized/home/qoodemo/var/www/site/'); //Edited for orchestra.io
 ///var/www/qoo-framework/libraries/qoo/Controller/Controller.php
 /*
 	*
