@@ -19,7 +19,7 @@ define("APPLICATION_ROOT",QOO_ROOT.'demo/');
 *
 *	This is a useful check
 */
-define ("QOO_VERSION" , "Beta20091011");
+define ("QOO_VERSION" , "Beta20111026");
 
 
 
