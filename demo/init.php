@@ -6,8 +6,7 @@
 	*	Change this directory to whatever you placed the green directory after you downloaded it
 	*
 */
-define("QOO_ROOT",'/mnt/orchestra-virtualized/home/qoodemo/var/www/site/'); //Edited for orchestra.io
-///var/www/qoo-framework/libraries/qoo/Controller/Controller.php
+define("QOO_ROOT",'../'); //Edited by ntrp (works everywhere fatto pirla xD)
 /*
 	*
 	*	Change this directory to whatever you want to place your application directory.
