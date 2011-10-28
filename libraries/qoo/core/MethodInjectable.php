@@ -16,7 +16,7 @@
 *	@livense BSD
 *	@author Mattia Alfieri <mattia.alfieri@ymail.com>
 **/
-abstract class MethodInjectable extends qoo/core/Object
+abstract class MethodInjectable extends qoo\core\Object
 {
 	/**
 	*

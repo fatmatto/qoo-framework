@@ -163,7 +163,7 @@ class Builder
 			
 			if(is_array($call) )
 				if (method_exists($object,$call[0]) )
-					call_user_func_array(array($object,$call[0]),$call[1];
+					call_user_func_array(array($object,$call[0]),$call[1]);
 		}
 		
 		
@@ -185,7 +185,7 @@ class Builder
 	*	myclass -> nuova istanza di myclass
 	*	this.myclass ->istanza locale di myclass
 	*	
-	*	 Le ultime due in realtà dovrebbero essere equivalenti perchè il builder se non ha già una istanza
+	*	 Le ultime due in realtï¿½ dovrebbero essere equivalenti perchï¿½ il builder se non ha giï¿½ una istanza
 	*	della classe richiesta la creare
 	*	
 	*/
