@@ -29,45 +29,29 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
+*/
 namespace qoo\model;
 
-/**
- *
- *
- * @author ntrp
- */
-class MongoDAO {//implements IGeneralDAO{
+class DBMongo {
 
-    protected $db_handler;
-    protected $cll_handler;
-    protected $cll_name;
+    private static $_instance;
 
-    public function __construct($user, $password, $host, $dbname, $cName) {
-        $this->db_handler = DBConnectionFactory::getInstance('mongo', $user, $password, $host, $dbname);
-        $this->cll_handler = $this->db_handler->$cName;
-        $this->cll_name = $cName;
-    }
+    private function __construct($user, $password, $host, $dbname) {
 
-    public function getCollectionName() {
-        return $this->cll_name;
-    }
-
-    public function find($query, $fields)
-    {
-        if (isset($query)) {
-            if (isset($fields)) {
-                return $this->cll_handler->find($query, $fields);
-            }
-            return $this->cll_handler->find($query);
+        try {
+            $connStr = 'mongob://' . $user . ':' . $password . '@' . $host . '/' . $dbname;
+            self::$_instance = new Mongo($connStr);
+        } catch (Exception $e) {
+            throw new \qoo\core\Exception('Cannot connect to mongodb url: ' . $host . '/' . $dbname);
         }
-        return $this->cll_handler->find();
     }
 
-    public function insert($doc)
-    {
-        $this->cll_handler->insert($doc);
+    public static function getInstance($user = null, $password = null, $host = null, $dbname = null) {
+
+        if (!(self::$_instance instanceof DBMongo))
+            self::$_instance = new DBMongo($user, $password, $host, $dbname);
+        return self::$_instance;
     }
 }
+
 ?>

@@ -1,9 +1,9 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-/* ====================================================================
+
+/** ====================================================================
  * BSD License
  *
- * Copyright (c) <YEAR>, <OWNER>
+ * Copyright (c) 2011, ntrp
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -14,7 +14,7 @@
  * - Redistributions in binary form must reproduce the above copyright notice,
  *   this list of conditions and the following disclaimer in the documentation
  *   and/or other materials provided with the distribution.
- * - Neither the name of the <ORGANIZATION> nor the names of its contributors
+ * - Neither the name of the GreenHub nor the names of its contributors
  *   may be used to endorse or promote products derived from this software
  *   without specific prior written permission.
  *
@@ -29,39 +29,24 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * $Id:$
 */
 
-abstract class MongoDBFactory {
+namespace qoo\model;
 
-    // mongo db unique handle (safe singleton, doesn't offer a global variable)
-    static $db_handle;
+abstract class DBConnectionFactory {
 
-    public static function getDBHandler(){
+    public static function getDBHandler($type, $user, $password, $host, $dbname){
 
-        if (! isset(self::$db_handle)) {
-
-            global $MONGO_DB_I;
-
-            try {
-
-                self::$db_handle = new Mongo('mongob://' .
-                                            $MONGO_DB_I['user'] . ':' .
-                                            $MONGO_DB_I['password'] . '@' .
-                                            $MONGO_DB_I['host'] . '/' .
-                                            $MONGO_DB_I['dbname']
-                                            );
-            } catch (Exception $e) {
-                slef::$db_handle = null;
-                throw new \qoo\core\Exception('Cannot connect to mongodb url: ' .
-                                                $MONGO_DB_I['host'] . '/' .
-                                                $MONGO_DB_I['dbname']
-                                                );
-            }
-
+        switch ($type) {        
+            case 'mongo':
+                return DBMongo::getInstance($user, $password, $host, $dbname);
+                break;
+            case 'mysql':
+                throw new \qoo\core\Exception('Database type ' . $type . ' not implemented yet!');
+                break;
+            default:
+                throw new \qoo\core\Exception('Invalid database type specified!');
         }
-
-        return self::$db_handle;
     }
 }
 ?>
