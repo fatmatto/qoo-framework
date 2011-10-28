@@ -32,25 +32,25 @@
 */
 namespace qoo\model;
 
-class DBMongo {
+abstract class MongoDBConnection {
 
-    private static $_instance;
+    private static $_db_handler = array();
 
-    private function __construct($user, $password, $host, $dbname) {
+    public function getHandler($user, $password, $host, $dbname) {
+        
+        $connHASH = md5($user . $password . $host . $dbname);
 
-        try {
-            $connStr = 'mongob://' . $user . ':' . $password . '@' . $host . '/' . $dbname;
-            self::$_instance = new Mongo($connStr);
-        } catch (Exception $e) {
-            throw new \qoo\core\Exception('Cannot connect to mongodb url: ' . $host . '/' . $dbname);
+        if (!array_key_exists($connHASH, self::$_db_handler) || self::$_db_handler[$connHASH] == null) {
+            try {
+                $connStr = 'mongodb://' . $user . ':' . $password . '@' . $host . '/' . $dbname;
+                $mongo = new \Mongo($connStr);
+                self::$_db_handler[$connHASH] = $mongo->selectDB($dbname);
+            } catch (MongoConnectionException $e) {
+                self::$_db_handler[$connHASH] = null;
+                throw new \qoo\core\Exception('Cannot connect to mongodb url: ' . $host . '/' . $dbname);
+            }
         }
-    }
-
-    public static function getInstance($user = null, $password = null, $host = null, $dbname = null) {
-
-        if (!(self::$_instance instanceof DBMongo))
-            self::$_instance = new DBMongo($user, $password, $host, $dbname);
-        return self::$_instance;
+        return self::$_db_handler[$connHASH];
     }
 }
 

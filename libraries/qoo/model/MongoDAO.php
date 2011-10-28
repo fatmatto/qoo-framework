@@ -45,8 +45,8 @@ class MongoDAO {//implements IGeneralDAO{
     protected $cll_name;
 
     public function __construct($user, $password, $host, $dbname, $cName) {
-        $this->db_handler = DBConnectionFactory::getInstance('mongo', $user, $password, $host, $dbname);
-        $this->cll_handler = $this->db_handler->$cName;
+        $this->db_handler = DBConnectionFactory::getDBHandler('mongo', $user, $password, $host, $dbname);        
+        $this->cll_handler = $this->db_handler->selectCollection($cName);
         $this->cll_name = $cName;
     }
 
@@ -54,7 +54,7 @@ class MongoDAO {//implements IGeneralDAO{
         return $this->cll_name;
     }
 
-    public function find($query, $fields)
+    public function find($query = null, $fields = null)
     {
         if (isset($query)) {
             if (isset($fields)) {
@@ -68,6 +68,10 @@ class MongoDAO {//implements IGeneralDAO{
     public function insert($doc)
     {
         $this->cll_handler->insert($doc);
+    }
+    
+    public function findAll() {
+        return $this->cll_handler->find();
     }
 }
 ?>

@@ -39,7 +39,7 @@ abstract class DBConnectionFactory {
 
         switch ($type) {        
             case 'mongo':
-                return DBMongo::getInstance($user, $password, $host, $dbname);
+                return MongoDBConnection::getHandler($user, $password, $host, $dbname);
                 break;
             case 'mysql':
                 throw new \qoo\core\Exception('Database type ' . $type . ' not implemented yet!');
