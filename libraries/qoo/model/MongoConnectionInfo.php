@@ -29,29 +29,26 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
+
 namespace qoo\model;
 
-abstract class MongoDBConnection {
+class MongoConnectionInfo 
+{
+	public $user = null;
+	public $pwd = null;
+	public $host = null;
+	public $dbname = null;
+	public $options = null;
 
-    private static $_db_handler = array();
-
-    public function getHandler($user, $password, $host, $dbname) {
-        
-        $connHASH = md5($user . $password . $host . $dbname);
-
-        if (!array_key_exists($connHASH, self::$_db_handler) || self::$_db_handler[$connHASH] == null) {
-            try {
-                $connStr = 'mongodb://' . $user . ':' . $password . '@' . $host . '/' . $dbname;
-                $mongo = new \Mongo($connStr);
-                self::$_db_handler[$connHASH] = $mongo->selectDB($dbname);
-            } catch (MongoConnectionException $e) {
-                self::$_db_handler[$connHASH] = null;
-                throw new \qoo\core\Exception('Cannot connect to mongodb url: ' . $host . '/' . $dbname);
-            }
-        }
-        return self::$_db_handler[$connHASH];
-    }
+	public function __construct($usr, $pw, $hst, $dbn, $opt)
+	{
+		$this->user = $usr;
+		$this->pwd = $pw;
+		$this->host = $hst;
+		$this->dbname = $dbn;
+		$this->options = $opt;
+	}
 }
 
 ?>

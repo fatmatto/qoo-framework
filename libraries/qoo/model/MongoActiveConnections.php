@@ -30,23 +30,36 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-
 namespace qoo\model;
 
-abstract class DBConnectionFactory {
+abstract class MongoActiveConnections 
+{
+    private static $_db_handler = array();
 
-    public static function getDBHandler($type, $mongoCInfo){
+    public function getHandler($mcinfo) 
+	{
+        $connHASH = md5($mcinfo->user . $mcinfo->pwd . $mcinfo->host . $mcinfo->dbname);
 
-        switch ($type) {        
-            case 'mongo':
-                return MongoActiveConnections::getHandler($mongoCInfo);
-                break;
-            case 'mysql':
-                throw new \qoo\core\Exception('Database type ' . $type . ' not implemented yet!');
-                break;
-            default:
-                throw new \qoo\core\Exception('Invalid database type specified!');
+        if (!array_key_exists($connHASH, self::$_db_handler) || self::$_db_handler[$connHASH] == null)
+		{
+            try 
+			{
+                $connStr = 'mongodb://' . $mcinfo->user . ':' . $mcinfo->pwd . '@' . $mcinfo->host . '/' . $mcinfo->dbname;
+
+				if ($mcinfo->options == null)
+                	$mongo = new \Mongo($connStr);
+				else
+                	$mongo = new \Mongo($connStr, $mcinfo->options);
+
+                self::$_db_handler[$connHASH] = $mongo->selectDB($mcinfo->dbname);
+            } catch (MongoConnectionException $e) 
+			{
+                self::$_db_handler[$connHASH] = null;
+                throw new \qoo\core\Exception('Cannot connect to mongodb url: ' . $host . '/' . $dbname);
+            }
         }
+        return self::$_db_handler[$connHASH];
     }
 }
+
 ?>

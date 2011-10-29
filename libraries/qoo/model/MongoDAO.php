@@ -42,12 +42,10 @@ class MongoDAO implements IGenericDAO{
 
     protected $db_handler;
     protected $cll_handler;
-    protected $cll_name;
 
-    public function __construct($user, $password, $host, $dbname, $cName) {
-        $this->db_handler = DBConnectionFactory::getDBHandler('mongo', $user, $password, $host, $dbname);        
+    public function __construct($mongoCInfo, $cName) {
+        $this->db_handler = DBConnectionFactory::getDBHandler('mongo', $mongoCInfo);        
         $this->cll_handler = $this->db_handler->selectCollection($cName);
-        $this->cll_name = $cName;
     }
 
     public function getCollectionName() {
