@@ -38,8 +38,8 @@ namespace qoo\model;
  *
  * @author ntrp
  */
-class MongoDAO implements IGenericDAO{
-
+class MongoDAO
+{
     protected $db_handler;
     protected $cll_handler;
 
@@ -52,14 +52,22 @@ class MongoDAO implements IGenericDAO{
         return $this->cll_name;
     }
 
-    public function insert($query) {
+    public function insert($doc, $options= null) {
 
-        $this->cll_handler->insert($query);
+        if (isset($options)) 
+		{
+            return $this->cll_handler->insert($doc, $pptions);
+        }
+        return $this->cll_handler->insert($doc);
     }
 
-    public function update($query, $fields = null) {
+    public function update($query, $newdoc, $options = null) {
 
-        $this->cll_handler->update($query, $fields);
+		if (isset($options))
+		{
+        	return $this->cll_handler->update($query, $fields, $options);
+		}
+       	return $this->cll_handler->update($query, $fields);
     }
 
     public function find($query = null, $fields = null) {
@@ -73,9 +81,13 @@ class MongoDAO implements IGenericDAO{
         return $this->cll_handler->find();
     }
 
-    public function remove($query) {
+    public function remove($query = null, $options = null) {
 
-        $this->cll_handler->remove($query);
+		if (isset($options))
+		{
+        	return $this->cll_handler->remove($query, $options);
+		}
+       	return $this->cll_handler->remove($query);
     }
 
     public function flush() {
