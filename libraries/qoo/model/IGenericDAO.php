@@ -48,6 +48,8 @@ interface IGenericDAO {
     public function find($query);
 
     public function remove($query);
+
+    public function flush();
 }
 
 ?>

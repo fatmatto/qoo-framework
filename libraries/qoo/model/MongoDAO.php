@@ -54,14 +54,14 @@ class MongoDAO implements IGenericDAO{
         return $this->cll_name;
     }
 
-    public function insert($doc) {
+    public function insert($query) {
 
-        $this->cll_handler->insert($doc);
+        $this->cll_handler->insert($query);
     }
 
-    public function update($doc) {
+    public function update($query, $fields = null) {
 
-        //$this->cll_handler->insert($doc);
+        $this->cll_handler->update($query, $fields);
     }
 
     public function find($query = null, $fields = null) {
@@ -75,9 +75,14 @@ class MongoDAO implements IGenericDAO{
         return $this->cll_handler->find();
     }
 
-    public function remove($doc) {
+    public function remove($query) {
 
-        $this->cll_handler->drop();
+        $this->cll_handler->remove($query);
+    }
+
+    public function flush() {
+
+        $this->cll_handler->drop();            
     }
 }
 ?>
