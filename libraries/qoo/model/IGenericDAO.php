@@ -38,46 +38,16 @@ namespace qoo\model;
  *
  * @author ntrp
  */
-class MongoDAO implements IGenericDAO{
 
-    protected $db_handler;
-    protected $cll_handler;
-    protected $cll_name;
+interface IGenericDAO {
 
-    public function __construct($user, $password, $host, $dbname, $cName) {
-        $this->db_handler = DBConnectionFactory::getDBHandler('mongo', $user, $password, $host, $dbname);        
-        $this->cll_handler = $this->db_handler->selectCollection($cName);
-        $this->cll_name = $cName;
-    }
+    public function insert($query);
 
-    public function getCollectionName() {
-        return $this->cll_name;
-    }
+    public function update($query);
 
-    public function insert($doc) {
+    public function find($query);
 
-        $this->cll_handler->insert($doc);
-    }
-
-    public function update($doc) {
-
-        //$this->cll_handler->insert($doc);
-    }
-
-    public function find($query = null, $fields = null) {
-
-        if (isset($query)) {
-            if (isset($fields)) {
-                return $this->cll_handler->find($query, $fields);
-            }
-            return $this->cll_handler->find($query);
-        }
-        return $this->cll_handler->find();
-    }
-
-    public function remove($doc) {
-
-        $this->cll_handler->drop();
-    }
+    public function remove($query);
 }
+
 ?>
