@@ -33,66 +33,9 @@
  
 namespace qoo\model;
 
-/**
- *
- *
- * @author ntrp
- */
-class MongoDAO
+interface IMongoGenericVO
 {
-    protected $db_handler;
-    protected $cll_handler;
-
-    public function __construct($mongoCInfo, $cName) {
-        $this->db_handler = DBConnectionFactory::getDBHandler('mongo', $mongoCInfo);        
-        $this->cll_handler = $this->db_handler->selectCollection($cName);
-    }
-
-    public function getCollectionName() {
-        return $this->cll_name;
-    }
-
-    public function insert($doc, $options= null) {
-
-        if (isset($options)) 
-		{
-            return $this->cll_handler->insert($doc, $pptions);
-        }
-        return $this->cll_handler->insert($doc);
-    }
-
-    public function update($query, $newdoc, $options = null) {
-
-		if (isset($options))
-		{
-        	return $this->cll_handler->update($query, $fields, $options);
-		}
-       	return $this->cll_handler->update($query, $fields);
-    }
-
-    public function find($query = null, $fields = null) {
-
-        if (isset($query)) {
-            if (isset($fields)) {
-                return $this->cll_handler->find($query, $fields);
-            }
-            return $this->cll_handler->find($query);
-        }
-        return $this->cll_handler->find();
-    }
-
-    public function remove($query = null, $options = null) {
-
-		if (isset($options))
-		{
-        	return $this->cll_handler->remove($query, $options);
-		}
-       	return $this->cll_handler->remove($query);
-    }
-
-    public function flush() {
-
-        $this->cll_handler->drop();            
-    }
+	
 }
+
 ?>

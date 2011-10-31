@@ -13,7 +13,7 @@ define("QOO_ROOT",'../'); //Edited by ntrp (works everywhere fatto pirla xD)
 	*	Please, note that under the application directory you should have 3 subdirectory: controllers, models and views
 	*
 */
-define("APPLICATION_ROOT",QOO_ROOT.'demo/');
+define("APP_ROOT",QOO_ROOT.'demo/');
 
 /*
 *

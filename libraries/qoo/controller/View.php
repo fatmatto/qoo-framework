@@ -60,7 +60,7 @@ class View
 	/**
 	*
 	*
-	*	The default directory is APPLICATION_ROOT/view/
+	*	The default directory is APP_ROOT/view/
 	*
 	*	@param $directory The directory in which the view file is placed (ending with / or \)
 	*
@@ -107,7 +107,7 @@ class View
 			throw new ViewException("You must load a view file before calling render()");
 		
 		if (null === $this->_Directory)
-			$this->setDirectory(APPLICATION_ROOT.'view/');
+			$this->setDirectory(APP_ROOT.'view/');
 		
 		if (!file_exists($this->_Directory.$this->_ViewName.'.php') )
 			throw new ViewException('The view file '.$this->_Directory.$this->_ViewName.'.php does not exist');

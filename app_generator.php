@@ -58,7 +58,7 @@ define(\"QOO_ROOT\",'$qoo_directory');
 	*	Please, note that under the application directory you should have 3 subdirectory: controllers, models and views
 	*
 */
-define(\"APPLICATION_ROOT\",'$application_directory');
+define(\"APP_ROOT\",'$application_directory');
 
 
 /*

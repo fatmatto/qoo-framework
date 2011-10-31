@@ -260,9 +260,9 @@ class Dispatcher extends \qoo\core\Object
 			
 		
 		
-		//If no controller directories were specified, the system uses APPLICATION_ROOT/controller
+		//If no controller directories were specified, the system uses APP_ROOT/controller
 		if (null === $this->_ControllerDirectory)
-			$this->_ControllerDirectory = APPLICATION_ROOT.'controller';
+			$this->_ControllerDirectory = APP_ROOT.'controller';
 		
 		
 		//We import the class file
