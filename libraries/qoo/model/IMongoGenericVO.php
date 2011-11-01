@@ -35,7 +35,9 @@ namespace qoo\model;
 
 interface IMongoGenericVO
 {
+	public function importArray($array);
 	
+	public function exportArray();
 }
 
 ?>
