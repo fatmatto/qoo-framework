@@ -50,7 +50,7 @@ abstract class MongoBaseDAO
 
 	protected function insert($doc, $options= null) {
 
-		return $this->cll_handler->insert($doc, $pptions);
+		return $this->cll_handler->insert($doc, $options);
 	}
 
 	protected function update($query, $newdoc, $options = null) {
