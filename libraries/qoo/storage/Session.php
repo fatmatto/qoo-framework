@@ -18,14 +18,14 @@ class Session {
 	*/
 	public function start() {
 		session_start();
-	};
+	}
 	
 	
 	public function set($name,$value) {
 		if (!is_string($name))
 			throw new qoo/Exception("First argument of qoo/storage/Session::set() must be string");
 		$_SESSION[$name] = $value;
-	};
+	}
 	
 	public function get($name) {
 		return $_SESSION[$name];

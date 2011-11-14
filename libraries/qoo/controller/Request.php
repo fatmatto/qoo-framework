@@ -79,7 +79,7 @@ class Request extends \qoo\core\Object implements \qoo\controller\RequestInterfa
 	/**
 	*
 	*	Uses the globals to inject values inside of the request object.
-	*	This is basically a shortcut to new Request($_POST, $_GET, $_COOKIES, $_SERVER, $_ENV, $FILES);
+	*	This is basically a shortcut to new Request($_POST, $_GET, $_COOKIE, $_SERVER, $_ENV, $FILES);
 	*
 	*	This method works with Request Subclasses that don't alter the constructor signature.
 	*
@@ -87,8 +87,8 @@ class Request extends \qoo\core\Object implements \qoo\controller\RequestInterfa
 	**/
 	public static function createWithGlobals()
 	{
-		$class_name = get_class($this);
-		return new $class_name($_POST, $_GET, $_COOKIES, $_SERVER, $_ENV, $FILES);
+		$class_name = get_called_class();
+		return new $class_name($_POST, $_GET, $_COOKIE, $_SERVER, $_ENV, $FILES);
 	}
 	
 	/**
@@ -119,7 +119,7 @@ class Request extends \qoo\core\Object implements \qoo\controller\RequestInterfa
 					$this->server->setParams($_SERVER);
 				break;
 				case 'COOKIES':
-					$this->cookies->setParams($_COOKIES);
+					$this->cookies->setParams($_COOKIE);
 				break;
 				case 'ENV':
 					$this->env->setParams($_ENV);

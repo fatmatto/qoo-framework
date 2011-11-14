@@ -21,7 +21,10 @@ class ParametersHolder
 	
 	
 	public function getParam($param_name) {
-		return $this->_Params[$param_name];
+		if (isset($this->_Params[$param_name]))
+			return $this->_Params[$param_name];
+		else
+			return null;
 	}
 	
 	
