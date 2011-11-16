@@ -18,7 +18,7 @@ class ViewException Extends \qoo\core\Exception {}
 *	@license BSD
 *	@author Mattia Alfieri <mattia.alfieri@ymail.com>
 **/
-class View
+class View extends \qoo\core\Object
 {
 	/**
 	 * 

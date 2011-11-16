@@ -20,11 +20,14 @@ class ParametersHolder
 	}
 	
 	
+	
 	public function getParam($param_name) {
+	
 		if (isset($this->_Params[$param_name]))
 			return $this->_Params[$param_name];
-		else
-			return null;
+		else {
+			throw new qoo\core\Exception('There is no parameter named '.$param_name.' '.get_called_class());
+		}
 	}
 	
 	
