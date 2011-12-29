@@ -6,7 +6,8 @@
 	*	Change this directory to whatever you placed the green directory after you downloaded it
 	*
 */
-define("QOO_ROOT",'../'); //Edited by ntrp (works everywhere fatto pirla xD)
+define("QOO_ROOT",'../'); //Edited by ntrp (works everywhere fatto pirla xD) 
+//Funziona solo soe metti il tuo sito dentro la cartella di qoo, quindi se hai 2 siti in un server devi metterli tutti dentro la cartella di qoo che è impensabile nitro pirla xD
 /*
 	*
 	*	Change this directory to whatever you want to place your application directory.
