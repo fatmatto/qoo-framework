@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 <html> 
@@ -17,7 +16,7 @@
 
 
 
-<link rel="stylesheet" href="http://localhost/qoo-framework/demo/resources/css/style.css" type="text/css" />
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" />
 
 </head>
 
@@ -26,7 +25,7 @@
 <div id="page" >
 
 		<div id="logo">
-			<img src="http://localhost/qoo-framework/demo/resources/qoo_logo.png" />
+			<img src="resources/qoo_logo.png" />
 			<h1 class="title">It Works!</h3>
 		</div>
 		
