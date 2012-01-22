@@ -37,7 +37,7 @@ abstract class MongoActiveConnections
 {
     private static $_db_handler = array();
 
-    public function getHandler($mcinfo) 
+    public static function getHandler($mcinfo) 
 	{
         $connHASH = md5($mcinfo->user . $mcinfo->pwd . $mcinfo->host . $mcinfo->dbname);
 
