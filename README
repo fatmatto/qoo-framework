@@ -5,6 +5,7 @@ qoo is a lightweight php mvc framework, implementing a comlpete front controller
 ## Hello World
 
 Create a new directory and a index.php file inside of it, the put the following content iinto index.php:
+
 ```php
 {{{
   require('path/to/qoo/init.php');
